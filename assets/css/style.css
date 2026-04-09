@@ -1,0 +1,148 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  z-index: 100;
+}
+
+.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* BUTTONS */
+.btn-main {
+  padding: 8px 18px;
+  background: #6366f1;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.btn-outline {
+  padding: 8px 18px;
+  border: 1px solid white;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url('../images/landing.png') no-repeat center/cover;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-content h1 {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  margin-bottom: 20px;
+}
+
+/* SECTION */
+.section {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.light {
+  background: #f9fafb;
+  color: #111;
+}
+
+.dark {
+  background: #111827;
+  color: white;
+}
+
+/* GRID */
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 250px;
+}
+
+/* STEPS */
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.step span {
+  font-size: 30px;
+  color: #6366f1;
+}
+
+/* CONTACT */
+.contact-form {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* FOOTER */
+.footer {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}

@@ -1,0 +1,49 @@
+/* NAVBAR IMPROVED */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ROLE SWITCH BUTTONS */
+.role-switch {
+    display: flex;
+    background: #f1f3f6;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.role-switch button {
+    border: none;
+    padding: 6px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: transparent;
+    color: #555;
+    font-weight: 500;
+}
+
+.role-switch button.active {
+    background: #667eea;
+    color: white;
+}
+
+/* LOGOUT */
+.logout {
+    cursor: pointer;
+    color: #444;
+    font-weight: 500;
+}
+
+.logout:hover {
+    color: #667eea;
+}

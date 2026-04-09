@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  padding: 15px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  min-height: 90vh;
+}
+
+/* LEFT */
+.left {
+  flex: 1;
+
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('../images/project-bg.jpg') no-repeat center;
+
+  background-size: cover;
+
+  color: white;
+  padding: 80px;
+}
+.left h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(2px);
+}
+
+.left p {
+  opacity: 0.9;
+}
+.left ul {
+  line-height: 2;
+}
+
+/* RIGHT */
+.right {
+  flex: 1;
+  background: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FORM */
+.form-box {
+  width: 350px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.form-box h2 {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* INPUT FOCUS */
+input:focus {
+  outline: none;
+  border: 1px solid #6366f1;
+  box-shadow: 0 0 5px rgba(99,102,241,0.3);
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* SECTION */
+.section {
+  padding: 80px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: #111827;
+  color: white;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="../assets/css/register.css">
+</head>
+
+<body>
+
+<div class="navbar">
+  <h2>Project Finder</h2>
+</div>
+
+<div class="main">
+
+  <div class="form-box">
+
+    <h1>Start Your Journey</h1>
+    <p>Join our platform and start collaborating</p>
+    <br><br>
+
+    <!-- FORM -->
+    <form action="..\backend\controllers\register.php" method="POST">
+
+  <input type="text" name="full_name" placeholder="Full Name" required>
+
+  <input type="text" name="username" placeholder="Username" required>
+
+  <input type="email" name="email" placeholder="Email" required>
+
+  <select name="qualification" required>
+    <option value="">Select Qualification</option>
+    <option>MCA</option>
+    <option>BCA</option>
+    <option>BTech</option>
+    <option>MTech</option>
+  </select>
+  <br><br>
+
+  <div class="input-group">
+  <label>Skills</label>
+
+  <div class="skills-box">
+
+    <input type="checkbox" id="java" name="skills[]" value="Java">
+    <label for="java">Java</label>
+
+    <input type="checkbox" id="python" name="skills[]" value="Python">
+    <label for="python">Python</label>
+
+    <input type="checkbox" id="html" name="skills[]" value="HTML">
+    <label for="html">HTML</label>
+
+    <input type="checkbox" id="css" name="skills[]" value="CSS">
+    <label for="css">CSS</label>
+
+    <input type="checkbox" id="js" name="skills[]" value="JavaScript">
+    <label for="js">JavaScript</label>
+
+    <input type="checkbox" id="php" name="skills[]" value="PHP">
+    <label for="php">PHP</label>
+
+  </div>
+</div>
+  <br><br>
+
+  <input type="password" name="password" placeholder="Password" required>
+
+  <textarea name="about" placeholder="Tell about yourself"></textarea>
+
+  <button type="submit">Register</button>
+
+</form>
+
+  </div>
+
+</div>
+
+</body>
+</html>

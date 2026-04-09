@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 18px 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.6); /* transparent */
+  backdrop-filter: blur(10px); /* glass effect */
+
+  z-index: 1000;
+}
+.navbar h2 {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* MAIN */
+.main {
+  padding: 100px 20px;
+  background: #f1f5f9;
+
+  display: flex;
+  justify-content: center;   /* CENTER HORIZONTALLY */
+  align-items: center;       /* CENTER VERTICALLY */
+}
+
+/* FORM SECTION */
+.form-section {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+.form-box {
+  width: 600px;
+  background: #ffffff; /* pure white */
+  padding: 35px;
+  border-radius: 12px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* TITLE */
+.form-section h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.form-section p {
+  margin-bottom: 25px;
+  color: #555;
+}
+
+/* INPUT */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* ROW (SIDE BY SIDE) */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+/* TEXTAREA */
+textarea {
+  height: 100px;
+}
+
+/* CHECKBOX */
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.checkbox input {
+  width: auto;
+  margin-right: 10px;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+/* LOGIN LINK */
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+  background: #111827;
+  color: white;
+  padding: 40px 60px;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.copy {
+  text-align: center;
+  font-size: 14px;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 14px;
+}
+
+/* align with input row */
+.row select {
+  flex: 1;
+}
+.row input,
+.row select {
+  flex: 1;
+}
+/* select same style as input */
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 14px;
+}
+
+/* multi-select height */
+select[multiple] {
+  height: 120px;
+}
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.checkbox-group label {
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  transition: 0.3s;
+}
+.skills-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* hide default checkbox */
+.skills-box input {
+  display: none;
+}
+
+/* style labels like buttons */
+.skills-box label {
+  padding: 8px 14px;
+  background: #f1f5f9;
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+/* hover */
+.skills-box label:hover {
+  background: #e0e7ff;
+}
+
+/* when selected */
+.skills-box input:checked + label {
+  background: #6366f1;
+  color: white;
+  border-color: #6366f1;
+}

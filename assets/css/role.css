@@ -1,0 +1,41 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f1f5f9;
+}
+
+/* NAVBAR */
+.navbar {
+  padding: 15px 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* MAIN */
+.container {
+  text-align: center;
+  padding: 80px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* CARD */
+.card {
+  width: 260px;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
