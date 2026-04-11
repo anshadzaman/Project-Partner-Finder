@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Role</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fb;
+        }
+
+        .top {
+            height: 50vh;
+            background: 
+                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .top h1 {
+            font-size: 36px;
+        }
+
+        .bottom {
+            margin-top: -80px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 240px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .quote-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .quote-content h2 {
+            font-size: 28px;
+            color: #444;
+        }
+
+        .quote-content p {
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top">
+    <h1>Choose Your Role 🚀</h1>
+</div>
+
+<div class="bottom">
+    <div class="card-container">
+
+        <div class="card" onclick="setRole('creator')">
+            <h3>Creator</h3>
+            <p>Create and manage projects</p>
+            <button class="btn">Choose</button>
+        </div>
+
+        <div class="card" onclick="setRole('finder')">
+            <h3>Finder</h3>
+            <p>Find and join projects</p>
+            <button class="btn">Choose</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="quote-section">
+    <div class="quote-content">
+        <h2>"Great things are built together."</h2>
+        <p>Connect. Collaborate. Create something amazing 🚀</p>
+    </div>
+</div>
+
+<script>
+function setRole(role) {
+    fetch("../backend/role-select.php", {   // ✅ FIXED PATH
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "role=" + role
+    })
+    .then(res => res.text())
+    .then(data => {
+        if (data.trim() === "success") {
+            window.location.href = "dashboard.php";
+        } else {
+            console.log(data); // 👈 debug
+            alert("Error setting role");
+        }
+    });
+}
+</script>
+
+</body>
+</html>

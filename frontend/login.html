@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Project Finder</title>
+
+  <link rel="stylesheet" href="../assets/css/login.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<script>
+function validateLogin() {
+  const username = document.querySelector("input[name='username']").value.trim();
+  const password = document.querySelector("input[name='password']").value.trim();
+
+  if (username === "" || password === "") {
+    alert("Please fill all fields");
+    return false;
+  }
+
+  if (password.length < 4) {
+    alert("Password must be at least 4 characters");
+    return false;
+  }
+
+  return true;
+}
+</script>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+  <div class="logo">Project Finder</div>
+
+  <div class="nav-links">
+    <a href="register.html">Register</a>
+    <a href="../backend/logout.php">Logout</a>
+  </div>
+
+</div>
+<!-- HERO -->
+<section class="hero">
+
+  <!-- LEFT -->
+  <div class="left">
+    <h1>Build Projects Together 🚀</h1>
+    <p>Join a community of students collaborating on real-world projects.</p>
+
+    <ul>
+      <li>✔ Find teammates easily</li>
+      <li>✔ Work on real ideas</li>
+      <li>✔ Improve your skills</li>
+    </ul>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <div class="form-box">
+
+      <h2>Login</h2>
+
+      <form action="../backend/login.php" method="POST">
+
+    <input type="email" name="email" placeholder="Enter Email" required>
+
+    <input type="password" name="password" placeholder="Enter Password" required>
+
+    <button type="submit">Login</button>
+
+</form>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EXTRA SECTION -->
+<section class="section">
+
+  <h2>Why Project Finder?</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Find Teams</h3>
+      <p>Connect with students who match your skills.</p>
+    </div>
+
+    <div class="card">
+      <h3>Create Projects</h3>
+      <p>Start your own project and build a team.</p>
+    </div>
+
+    <div class="card">
+      <h3>Grow Together</h3>
+      <p>Learn and collaborate efficiently.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Project Finder. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
