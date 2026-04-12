@@ -1,0 +1,62 @@
+/* ===== BODY ===== */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* ===== TEXT ===== */
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* ===== BUTTONS ===== */
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* LOGIN */
+.login {
+    background: #667eea;
+}
+
+.login:hover {
+    background: #5a67d8;
+}
+
+/* REGISTER */
+.register {
+    background: #38a169;
+}
+
+.register:hover {
+    background: #2f855a;
+}

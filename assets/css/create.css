@@ -1,29 +1,70 @@
+/* ===== BODY ===== */
 body {
-  background: #f3f4f6;
-  font-family: 'Inter', sans-serif;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
 }
 
-.form-box {
-  width: 400px;
-  margin: 80px auto;
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 600px;
+    margin: 80px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
+/* ===== HEADING ===== */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* ===== INPUTS ===== */
 input, textarea {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
 }
 
+/* ===== TEXTAREA HEIGHT ===== */
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* ===== BUTTON ===== */
 button {
-  width: 100%;
-  padding: 10px;
-  background: #6366f1;
-  color: white;
-  border: none;
-  border-radius: 8px;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background: #667eea;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+/* ===== BACK LINK ===== */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #667eea;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

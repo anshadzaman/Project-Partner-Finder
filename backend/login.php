@@ -19,7 +19,11 @@ if ($result->num_rows > 0) {
     // ✅ CORRECT PASSWORD CHECK
     if (password_verify($password, $user['password'])) {
 
+       
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['name'] = $user['full_name'];   // ✅ ADD THIS
+        $_SESSION['username'] = $user['username']; // (optional but good)
+        $_SESSION['role'] = $user['role'];
 
         if ($user['role'] == NULL) {
             header("Location: ../frontend/role_selection.html");
