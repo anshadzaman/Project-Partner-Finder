@@ -195,17 +195,68 @@ if($role == 'finder'){
             <?php if($projects && $projects->num_rows > 0): ?>
                 <?php while($p = $projects->fetch_assoc()): ?>
 
-                    <div class="card">
-                        <h4><?php echo $p['title']; ?></h4>
-                        <p><?php echo $p['description']; ?></p>
+                    <div class="project-card">
 
-                        <small><b>By:</b> <?php echo $p['full_name']; ?></small>
+    <!-- HEADER -->
+    <div class="project-header">
+        <h3><?php echo $p['title']; ?></h3>
+        <span class="domain"><?php echo $p['domain']; ?></span>
+    </div>
 
-                        <form action="../backend/apply_project.php" method="POST">
-                            <input type="hidden" name="project_id" value="<?php echo $p['id']; ?>">
-                            <button class="btn">Apply</button>
-                        </form>
-                    </div>
+    <!-- SHORT DESCRIPTION -->
+    <p class="desc">
+        <?php echo substr($p['description'], 0, 100); ?>...
+    </p>
+
+    <!-- INFO -->
+    <div class="project-info">
+
+        <p><strong>👤 Owner:</strong> <?php echo $p['full_name']; ?></p>
+
+        <p><strong>👥 Team:</strong>
+        <?php
+            $count = $conn->query("
+                SELECT COUNT(*) as total 
+                FROM applications 
+                WHERE project_id='".$p['id']."' AND status='accepted'
+            ");
+            $row = $count->fetch_assoc();
+            echo $row['total'] . " / " . ($p['team_size'] ?? 0);
+        ?>
+        </p>
+
+        <p><strong>🛠 Skills:</strong> <?php echo $p['required_skills']; ?></p>
+
+        <p><strong>⏱ Work:</strong> <?php echo $p['work_hours'] ?? 'N/A'; ?> hrs/day</p>
+
+        <p><strong>🎯 Experience:</strong> <?php echo $p['experience'] ?? 'N/A'; ?></p>
+
+    </div>
+
+    <!-- APPLY BUTTON LOGIC -->
+    <form action="../backend/apply_project.php" method="POST">
+        <input type="hidden" name="project_id" value="<?php echo $p['id']; ?>">
+
+        <?php
+            // check already applied
+            $check = $conn->query("
+                SELECT * FROM applications 
+                WHERE user_id='$user_id' AND project_id='".$p['id']."'
+            ");
+
+            if($check->num_rows > 0){
+                echo "<button class='apply-btn' disabled>Applied</button>";
+            }
+            elseif($row['total'] >= ($p['team_size'] ?? 0)){
+                echo "<button class='apply-btn' disabled>Full</button>";
+            }
+            else{
+                echo "<button class='apply-btn'>Apply</button>";
+            }
+        ?>
+    </form>
+
+</div>
 
                 <?php endwhile; ?>
             <?php else: ?>

@@ -113,3 +113,70 @@ input[type="text"] {
     border-radius: 6px;
     border: 1px solid #ccc;
 }
+/* ===== PROJECT CARD ===== */
+.project-card {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+/* HEADER */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-header h3 {
+    margin: 0;
+}
+
+/* DOMAIN BADGE */
+.domain {
+    background: #667eea;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+/* DESCRIPTION */
+.desc {
+    color: #555;
+    margin: 10px 0;
+}
+
+/* INFO GRID */
+.project-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* APPLY BUTTON */
+.apply-btn {
+    background: #38a169;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.apply-btn:hover {
+    background: #2f855a;
+}
+
+.apply-btn:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
