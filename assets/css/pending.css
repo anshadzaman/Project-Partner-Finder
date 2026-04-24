@@ -1,0 +1,134 @@
+/* ===== PAGE HEADER ===== */
+.pending-header{
+    margin-bottom:25px;
+}
+
+.pending-header h2{
+    font-size:30px;
+    color:#111827;
+    margin-bottom:6px;
+}
+
+.pending-header p{
+    color:#6b7280;
+}
+
+/* ===== MAIN BOX ===== */
+.pending-wrapper{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* ===== APPLICATION CARD ===== */
+.app-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    border:1px solid #eef2f7;
+    transition:.3s ease;
+}
+
+.app-card:hover{
+    transform:translateY(-4px);
+}
+
+.app-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.user-badge{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:700;
+}
+
+.app-info h3{
+    margin:0;
+    font-size:22px;
+}
+
+.app-info p{
+    color:#6b7280;
+    margin-top:5px;
+}
+
+/* ===== DETAILS ===== */
+.app-meta{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.meta-box{
+    background:#f8fafc;
+    padding:14px;
+    border-radius:12px;
+}
+
+.meta-box span{
+    display:block;
+    color:#6b7280;
+    font-size:13px;
+    margin-bottom:4px;
+}
+
+.meta-box strong{
+    font-size:15px;
+}
+
+/* ===== BUTTONS ===== */
+.action-btns{
+    display:flex;
+    gap:12px;
+    margin-top:15px;
+}
+
+.accept-btn{
+    background:#10b981;
+    color:#fff;
+    border:none;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.accept-btn:hover{
+    background:#059669;
+}
+
+.reject-btn{
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.reject-btn:hover{
+    background:#dc2626;
+}
+
+/* ===== EMPTY ===== */
+.empty-app{
+    background:#fff;
+    padding:60px;
+    text-align:center;
+    border-radius:18px;
+    color:#6b7280;
+}
