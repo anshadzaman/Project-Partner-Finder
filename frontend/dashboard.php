@@ -19,6 +19,7 @@ if($role == 'creator'){
     $projects = $conn->query("
         SELECT * FROM projects
         WHERE creator_id='$user_id'
+        AND status='open'
     ");
 
     $applications = $conn->query("
@@ -37,7 +38,15 @@ if($role == 'finder'){
     $search = $_GET['search'] ?? '';
 
     $projects = $conn->query("
-        SELECT projects.*, users.full_name
+        SELECT projects.*, users.full_name,
+
+        (
+            SELECT COUNT(*)
+            FROM applications
+            WHERE applications.project_id = projects.id
+            AND applications.status='accepted'
+        ) AS joined_count
+
         FROM projects
         JOIN users ON projects.creator_id = users.id
         WHERE status='open'
@@ -65,6 +74,10 @@ if($role == 'finder'){
     <link rel="stylesheet"
     href="/project-partner-finder/assets/css/pending.css?v=2">
     <?php endif; ?>
+    <?php if($page == 'account'): ?>
+<link rel="stylesheet"
+href="/project-partner-finder/assets/css/account.css">
+<?php endif; ?>
 
 </head>
 
@@ -82,6 +95,7 @@ if($role == 'finder'){
         <a href="?page=main">Main Dashboard</a>
         <a href="?page=applications">Pending Applications</a>
         <a href="?page=projects">Ongoing Projects</a>
+        <a href="?page=account">Account</a>
 
     <?php endif; ?>
 
@@ -89,6 +103,7 @@ if($role == 'finder'){
 
         <a href="?page=main">Main Dashboard</a>
         <a href="?page=status">Application Status</a>
+        <a href="?page=account">Account</a>
 
     <?php endif; ?>
 
@@ -368,32 +383,34 @@ $progress = $p['progress'] ?? 0;
     </div>
 
     <form action="../backend/update_project_status.php"
-    method="POST"
-    class="action-row">
+method="POST"
+class="action-row">
 
-        <input type="hidden"
-        name="project_id"
-        value="<?php echo $p['id']; ?>">
+    <input type="hidden"
+    name="project_id"
+    value="<?php echo $p['id']; ?>">
 
-        <select name="status">
-            <option>Not Started</option>
-            <option>Planning</option>
-            <option>In Progress</option>
-            <option>Testing</option>
-            <option>Completed</option>
-        </select>
+    <select name="status">
+        <option>Not Started</option>
+        <option>Planning</option>
+        <option>In Progress</option>
+        <option>Testing</option>
+        <option>Completed</option>
+    </select>
 
-        <input type="number"
-        name="progress"
-        min="0"
-        max="100"
-        value="<?php echo $progress; ?>">
+    <button class="save-btn" name="update_status">
+        Update
+    </button>
 
-        <button class="save-btn">
-            Update
-        </button>
+    <?php if($p['project_status'] != 'Closed'): ?>
+    <button type="submit"
+    name="close_project"
+    style="background:red;color:white;border:none;padding:12px 18px;border-radius:8px;cursor:pointer;">
+        Close Request
+    </button>
+    <?php endif; ?>
 
-    </form>
+</form>
 
 </div>
 
@@ -454,6 +471,9 @@ $progress = $p['progress'] ?? 0;
         <p><strong>Experience:</strong>
         <?php echo $p['experience']; ?></p>
 
+        <p><strong>Team Filled:</strong>
+        <?php echo $p['joined_count']; ?>/<?php echo $p['team_size']; ?></p>
+
     </div>
 
     <form action="../backend/apply_project.php"
@@ -463,9 +483,21 @@ $progress = $p['progress'] ?? 0;
         name="project_id"
         value="<?php echo $p['id']; ?>">
 
-        <button class="apply-btn">
-            Apply
-        </button>
+        <?php if($p['joined_count'] >= $p['team_size']): ?>
+
+            <button class="apply-btn"
+            disabled
+            style="background:gray;cursor:not-allowed;">
+                Team Full
+            </button>
+
+        <?php else: ?>
+
+            <button class="apply-btn">
+                Apply
+            </button>
+
+        <?php endif; ?>
 
     </form>
 
@@ -510,6 +542,72 @@ $progress = $p['progress'] ?? 0;
 <?php else: ?>
 
 <p>No Applications Yet</p>
+
+<?php endif; ?>
+
+</div>
+
+<?php endif; ?>
+<?php if($page == 'account'):
+
+$user = $conn->query("
+SELECT * FROM users
+WHERE id='$user_id'
+")->fetch_assoc();
+
+$edit = $_GET['edit'] ?? 0;
+?>
+
+<div class="card">
+
+<h2>My Account</h2>
+
+<?php if(!$edit): ?>
+
+<p><strong>Name:</strong> <?php echo $user['full_name']; ?></p>
+<p><strong>Email:</strong> <?php echo $user['email']; ?></p>
+<p><strong>Skills:</strong> <?php echo $user['skills']; ?></p>
+<p><strong>Experience:</strong> <?php echo $user['experience']; ?></p>
+<p><strong>Domain:</strong> <?php echo $user['preferred_domain']; ?></p>
+<p><strong>Bio:</strong><br><?php echo $user['bio']; ?></p>
+
+<a href="?page=account&edit=1">
+<button class="save-profile">
+Edit Profile
+</button>
+</a>
+
+<?php else: ?>
+
+<form action="../backend/update_profile.php"
+method="POST"
+class="account-form">
+
+<input type="text"
+name="full_name"
+value="<?php echo $user['full_name']; ?>">
+
+<input type="text"
+name="skills"
+value="<?php echo $user['skills']; ?>">
+
+<select name="experience">
+<option <?php if($user['experience']=='Beginner') echo 'selected'; ?>>Beginner</option>
+<option <?php if($user['experience']=='Intermediate') echo 'selected'; ?>>Intermediate</option>
+<option <?php if($user['experience']=='Advanced') echo 'selected'; ?>>Advanced</option>
+</select>
+
+<input type="text"
+name="preferred_domain"
+value="<?php echo $user['preferred_domain']; ?>">
+
+<textarea name="bio"><?php echo $user['bio']; ?></textarea>
+
+<button class="save-profile">
+Save Changes
+</button>
+
+</form>
 
 <?php endif; ?>
 

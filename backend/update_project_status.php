@@ -1,23 +1,31 @@
 <?php
 session_start();
 
-$conn = new mysqli("localhost","root","","project_finder");
+$conn = new mysqli("localhost", "root", "", "project_finder");
 
-$id = $_POST['project_id'];
-$status = $_POST['status'];
-$progress = $_POST['progress'];
+$project_id = $_POST['project_id'];
 
-$sql = "UPDATE projects 
-SET project_status='$status',
-progress='$progress'
-WHERE id='$id'";
+if(isset($_POST['close_project'])){
 
-if($conn->query($sql)){
-    $_SESSION['success'] = "Project updated successfully!";
-}else{
-    $_SESSION['error'] = "Update failed!";
+    $conn->query("
+        UPDATE projects
+        SET project_status='Closed',
+            status='closed',
+            progress=100
+        WHERE id='$project_id'
+    ");
+
+}
+else{
+
+    $status = $_POST['status'];
+
+    $conn->query("
+        UPDATE projects
+        SET project_status='$status'
+        WHERE id='$project_id'
+    ");
 }
 
 header("Location: ../frontend/dashboard.php?page=projects");
-exit();
 ?>
